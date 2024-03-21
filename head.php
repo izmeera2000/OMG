@@ -22,10 +22,15 @@
 	<link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
 	<link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
 	<link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+	<!-- <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
+	<link rel="stylesheet" href="assets/vendor/nouislider/nouislider.min.css">
 
 	<!-- Template Main CSS File -->
 	<link href="assets/css/style.css" rel="stylesheet">
-	<link rel="stylesheet" href="assets/vendor/nouislider/nouislider.min.css">
+
+	<link rel="stylesheet" type="text/css" href="assets/vendor/slick/slick.css"/>
+	<!-- <link rel="stylesheet" type="text/css" href="assets/vendor/slick/slick-theme.css"/> -->
+
 	<!-- =======================================================
   * Template Name: Medilab
   * Updated: Jan 29 2024 with Bootstrap v5.3.2
