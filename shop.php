@@ -17,7 +17,7 @@
 	<main id="main">
 
 		<!-- ======= Breadcrumbs Section ======= -->
-		<section class="breadcrumbs">
+		<section class="breadcrumbs" >
 			<div class="container">
 
 				<div class="d-flex justify-content-between align-items-center">
@@ -31,7 +31,7 @@
 			</div>
 		</section><!-- End Breadcrumbs Section -->
 
-		<section class="inner-page">
+		<section  class="inner-page" >
 			<div class="container">
 				<!-- row -->
 				<div class="row">
@@ -260,7 +260,7 @@
 										</div>
 									</div>
 									<div class="product-body">
-										<p class="product-category">Category</p>
+										<p class="product-category">Prebuilt</p>
 										<h3 class="product-name"><a href="product.php">product name goes here</a></h3>
 										<h4 class="product-price">RM980.00 <del class="product-old-price">RM990.00</del>
 										</h4>
@@ -302,10 +302,10 @@
 							<span class="store-qty">Showing 20 of 100 products</span>
 							<ul class="store-pagination float-md-end d-flex justify-content-center px-0">
 								<li class="active">1</li>
-								<li><a href="#">2</a></li>
+								<!-- <li><a href="#">2</a></li>
 								<li><a href="#">3</a></li>
 								<li><a href="#">4</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+								<li><a href="#"><i class="fa fa-angle-right"></i></a></li> -->
 							</ul>
 						</div>
 						<!-- /store bottom filter -->

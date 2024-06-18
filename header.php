@@ -7,9 +7,9 @@
 
 			<nav id="navbar" class="navbar order-last order-lg-0">
 				<ul>
-					<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+					<li><a class="nav-link scrollto" href="index.php#hero">Home</a></li>
 					<li><a class="nav-link scrollto" href="#about">About</a></li>
-					<li><a class="nav-link scrollto" href="shop.php">Shop</a></li>
+					<li><a class="nav-link scrollto" href="shop.php#shop">Shop</a></li>
 					<li><a class="nav-link scrollto" href="#departments">Services</a></li>
 					<!-- <li><a class="nav-link scrollto" href="#doctors">Team</a></li> -->
 					<!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
