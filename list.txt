@@ -55,7 +55,7 @@ name
 
 
 
-order											
+product_orders											
 id											
 product											
 status											
@@ -71,7 +71,7 @@ totalprice
 
 account											
 id	
-level										
+role										
 username											
 password			encrypted								
 address											

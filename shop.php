@@ -29,7 +29,8 @@
 				</div>
 
 			</div>
-		</section><!-- End Breadcrumbs Section -->
+		</section>
+		<!-- End Breadcrumbs Section -->
 
 		<section  class="inner-page" >
 			<div class="container">
