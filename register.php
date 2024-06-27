@@ -40,7 +40,7 @@
 			<div class="container">
 
 				<div class="section-title">
-					<h2>Login</h2>
+					<h2>Register</h2>
 					<!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit
 						sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias
 						ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
@@ -65,10 +65,10 @@
 
 					</div>
 
-					<div class="text-center mt-3"><button type="submit">Login</button></div>
+					<div class="text-center mt-3"><button type="submit">Register</button></div>
 
 
-					<div  class="text-center mt-5 mt-md-3">Not a user yet? <a href="register.php">Register</a> here.</div>
+					<div  class="text-center mt-5 mt-md-3">Already got an account? <a href="register.php">Login</a> here.</div>
 
 				</form>
 

@@ -160,7 +160,19 @@ h6 {
 #topbar .social-links a:first-child {
   border-left: 0;
 }
-
+@media (max-width: 1024px) {
+  #topbar {
+    background: #1E1F29;
+    height: 00px;
+    font-size: 14px;
+    transition: all 0.5s;
+    z-index: 996;
+  }
+  
+  #topbar.topbar-scrolled {
+    top: 0px;
+  }
+}
 /*--------------------------------------------------------------
 # Header
 --------------------------------------------------------------*/
@@ -193,6 +205,16 @@ h6 {
 
 #header .logo img {
   max-height: 70px;
+}
+@media (max-width: 1024px) {
+  #header {
+    background: #15161D;
+    transition: all 0.5s;
+    z-index: 997;
+    padding: 15px 0;
+    top: 00px;
+    box-shadow: 0px 2px 15px rgba(25, 119, 204, 0.1);
+  }
 }
 
 /**
@@ -403,7 +425,7 @@ h6 {
 }
 
 .navbar-mobile>ul>li {
-  padding: 0;
+  /* padding: 0; */
 }
 
 .navbar-mobile a,
