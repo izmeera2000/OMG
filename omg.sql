@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jun 25, 2024 at 04:37 PM
+-- Generation Time: Jul 02, 2024 at 07:51 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.18
 
@@ -169,13 +169,43 @@ CREATE TABLE IF NOT EXISTS `user` (
   `role` varchar(99) NOT NULL,
   `username` varchar(99) NOT NULL,
   `password` varchar(99) NOT NULL,
-  `address` text NOT NULL,
   `email` varchar(99) NOT NULL,
+  `fullname` varchar(99) NOT NULL,
   `phone_number` int NOT NULL,
   `security` varchar(99) NOT NULL,
   `time_add` timestamp NOT NULL,
   `time_edit` timestamp NOT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `user`
+--
+
+INSERT INTO `user` (`id`, `role`, `username`, `password`, `email`, `fullname`, `phone_number`, `security`, `time_add`, `time_edit`) VALUES
+(2, '', 'asdasd', 'a8f5f167f44f4964e6c998dee827110c', 'asdasd@gmail.com', 'asdasd', 0, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_address`
+--
+
+DROP TABLE IF EXISTS `user_address`;
+CREATE TABLE IF NOT EXISTS `user_address` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `name` int NOT NULL,
+  `address` int NOT NULL,
+  `state` int NOT NULL,
+  `city` int NOT NULL,
+  `postcode` int NOT NULL,
+  `phone` int NOT NULL,
+  `default_address` int NOT NULL,
+  `time_add` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `time_edit` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -208,6 +238,12 @@ ALTER TABLE `product_review`
 ALTER TABLE `product_spec`
   ADD CONSTRAINT `product_spec_ibfk_1` FOREIGN KEY (`product_spec_category_id`) REFERENCES `product_spec_category` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   ADD CONSTRAINT `product_spec_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
+-- Constraints for table `user_address`
+--
+ALTER TABLE `user_address`
+  ADD CONSTRAINT `user_address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

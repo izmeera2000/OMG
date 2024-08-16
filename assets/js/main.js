@@ -225,6 +225,32 @@
   });
 
   /**
+   * recent-order slider
+   */
+  new Swiper('.recent-order-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      },
+
+
+    }
+  });
+
+  /**
    * Initiate Pure Counter 
    */
   new PureCounter();
@@ -332,6 +358,26 @@
   
 })()
 
+$(document).on('click', '#edit_address', function () {
 
+
+console.log();
+
+  $.ajax({
+      type: "POST",
+      url: "admin/server.php",
+      data: {
+          add_id: $(this).data('id')  
+      },
+      success: function (response) {
+          console.log(response);
+          $('#edit_addr_modal').html(response);
+
+          $("#editaddress").modal("show");
+
+      }
+  });
+
+});
 
 

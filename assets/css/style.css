@@ -324,7 +324,7 @@ h6 {
   font-size: 14px;
   font-weight: 500;
   text-transform: none;
-  color: #082744;
+  color: #f85728;
   border: none;
 }
 
@@ -481,6 +481,32 @@ h6 {
   display: block;
 }
 
+.log-dropdown{
+  color: #f85728;
+
+}
+
+.log-dropdown :active{
+  color: #f85728;
+  
+}
+.log-dropdown .name{
+  font-weight: bold;
+  color: #f85728;
+
+}
+
+.log-dropdown .dropdown-item:hover{
+  background-color: #f85728;
+  color: #fff;
+  
+}
+
+.log-dropdown  .dropdown-item.active{
+  background-color: #f85728;
+  color: #fff;
+  
+}
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -761,13 +787,24 @@ section {
   font-size: 20px;
   font-weight: 700;
   margin: 0 0 30px 0;
-}
+} 
 
 .why-us .icon-boxes .icon-box p {
   font-size: 15px;
   color: #848484;
 }
 
+.why-us .icon-boxes .icon-box .btn {
+  font-size: 20px;
+  background-color: #f85728;
+  color: white;
+}
+.why-us .icon-boxes .icon-box .btn i{
+  font-size: 20px;
+  /* background-color: #f85728; */
+  color: white;
+
+}
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
@@ -1018,7 +1055,11 @@ section {
   margin-bottom: 15px;
   font-size: 24px;
 }
-
+.services .icon-box input {
+  font-weight: 700;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
 .services .icon-box h4 a {
   color: #2c4964;
 }
@@ -2943,4 +2984,116 @@ textarea.input {
 
 .store-grid li a {
   display: block;
+}
+
+/*--------------------------------------------------------------
+# recent-order
+--------------------------------------------------------------*/
+.recent-order .order-wrap {
+  /* padding-left: 50px; */
+}
+
+.recent-order .recent-order-carousel,
+.recent-order .recent-order-slider {
+  overflow: hidden;
+}
+
+.recent-order .order-item {
+  box-sizing: content-box;
+  padding: 30px 30px 30px 60px;
+  margin: 30px 15px;
+  min-height: 200px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;    position: relative;
+  background: #fff;
+}
+
+.recent-order .order-item .order-img {
+  width: 90px;
+  border-radius: 10px;
+  border: 6px solid #fff;
+  /* position: absolute; */
+  /* left: -45px; */
+}
+
+.recent-order .order-item h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 10px 0 5px 0;
+  color: #111;
+}
+
+.recent-order .order-item h4 {
+  font-size: 14px;
+  color: #f85728;
+  margin: 0;
+}
+.recent-order .order-item h5 {
+  /* font-size: 14px; */
+  color: black;
+  /* margin: 0; */
+}
+
+
+.recent-order .order-item .quote-icon-left,
+.recent-order .order-item .quote-icon-right {
+  color: #badaf7;
+  font-size: 26px;
+}
+
+.recent-order .order-item .quote-icon-left {
+  display: inline-block;
+  left: -5px;
+  position: relative;
+}
+
+.recent-order .order-item .quote-icon-right {
+  display: inline-block;
+  right: -5px;
+  position: relative;
+  top: 10px;
+}
+
+.recent-order .order-item .body p {
+  font-style: italic;
+  margin: 15px auto 15px auto;
+  color: black;
+
+}
+
+.recent-order .swiper-pagination {
+  margin-top: 20px;
+  position: relative;
+}
+
+.recent-order .swiper-pagination .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  opacity: 1;
+  border: 1px solid #f85728;
+}
+
+.recent-order .swiper-pagination .swiper-pagination-bullet-active {
+  background-color: #f85728;
+}
+
+@media (max-width: 767px) {
+  .recent-order .order-wrap {
+    padding-left: 0;
+  }
+
+  .recent-order .recent-order-carousel,
+  .recent-order .recent-order-slider {
+    overflow: hidden;
+  }
+
+  .recent-order .order-item {
+    padding: 30px;
+    margin: 15px;
+  }
+
+  .recent-order .order-item .order-img {
+    position: static;
+    left: auto;
+  }
 }
