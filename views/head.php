@@ -26,7 +26,8 @@
 	<link href="<?php echo $site_url ?>assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 	<!-- <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
 	<link rel="stylesheet" href="<?php echo $site_url ?>assets/vendor/nouislider/nouislider.min.css">
-
+	<!-- <link rel="stylesheet" href="<?php echo $site_url ?>assets/vendor/datatables/datatables.min.css"> -->
+	
 	<!-- Template Main CSS File -->
 	<link href="<?php echo $site_url ?>assets/css/style.css" rel="stylesheet">
 

@@ -26,7 +26,7 @@ include(getcwd() . '/admin/server.php');
 				<div class="d-flex justify-content-between align-items-center">
 					<h2>Shop</h2>
 					<ol>
-						<li><a href="index.html">Home</a></li>
+						<li><a href="<?php echo $site_url ?>">Home</a></li>
 						<li>Shop</li>
 					</ol>
 				</div>
@@ -69,9 +69,9 @@ include(getcwd() . '/admin/server.php');
 									?>
 
 									<div class="col-6 col-lg-4">
-										<div class="product">
+										<div class="product  position-relative" title="<?php echo $products['name'] ?>">
 											<div class="product-img">
-												<img src="assets/img/product/<?php echo $products['name'] ?>/<?php echo $products['image_url'] ?>"
+												<img src="<?php echo $site_url ?>assets/img/product/<?php echo $products['id'] ?>/<?php echo $products['image_url'] ?>"
 													alt="">
 												<div class="product-label">
 													<?php
@@ -89,10 +89,11 @@ include(getcwd() . '/admin/server.php');
 											</div>
 											<div class="product-body">
 												<p class="product-category"><?php echo $products['category_name'] ?></p>
-												<h3 class="product-name"><a
-														href="product/<?php echo $products['id'] ?>"><?php echo $products['name'] ?></a>
+												<h3 class="product-name">
+													<a class="stretched-link"
+														href="shop/product/<?php echo $products['id'] ?>/<?php echo $products['name'] ?>" ><?php echo $products['name'] ?></a>
 												</h3>
-												<h4 class="product-price">RM<?php echo $products['price'] ?> <del
+												<h4 class="product-price"  >RM<?php echo $products['price'] ?> <del
 														class="product-old-price">RM990.00</del>
 												</h4>
 												<div class="product-rating">
@@ -104,7 +105,8 @@ include(getcwd() . '/admin/server.php');
 												</div>
 
 											</div>
-
+											<a class="text-reset text-decoration-none stretched-link"
+											href="shop/product/<?php echo $products['id'] ?>/<?php echo $products['name'] ?>"></a>
 										</div>
 									</div>
 									<?php
@@ -157,7 +159,6 @@ include(getcwd() . '/admin/server.php');
 	<?php include(getcwd() . '/views/' . 'backtotoparrow.php') ?>
 
 	<?php include(getcwd() . '/views/' . 'script.php') ?>
-
 
 
 

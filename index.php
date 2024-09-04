@@ -8,6 +8,12 @@ function index()
 	require_once('views/index.php');
 }
 
+
+function server()
+{
+
+	require_once('admin/server.php');
+}
 function shop()
 {
 	require_once('views/shop/shop.php');
@@ -40,12 +46,24 @@ function user_profile()
 {
 	require_once('views/user/profile.php');
 }
-function user_adressbook()
+function user_addressbook()
 {
 	require_once('views/user/addressbook.php');
 }
+function user_cart()
+{
+	require_once('views/user/cart.php');
+}
 
 
+
+//product
+
+function shop_product($request)
+{
+
+	require_once('views/shop/product.php');
+}
 
 //custom pages
 function page404()
@@ -60,6 +78,12 @@ function page404()
 if ($request == '' or $request == '/')
 	index();
 //If url is http://localhost/route/about-us
+else if ($request == 'addcart')
+	server();
+else if ($request == 'user/deletecart')
+	server();
+else if (str_contains($request, 'updatecart'))
+	server();
 else if ($request == 'shop')
 	shop();
 else if ($request == 'login')
@@ -74,7 +98,13 @@ else if ($request == 'user')
 else if ($request == 'user/profile' or $request == 'user/profile/')
 	user_profile();
 else if ($request == 'user/addressbook' or $request == 'user/addressbook/')
-	user_profile();
+	user_addressbook();
+else if ($request == 'user/edtaddress')
+	server();
+else if ($request == 'user/cart')
+	user_cart();
+else if (str_starts_with($request, 'shop/product'))
+	shop_product($request);
 //If user entered something else
 else {
 	echo $request;

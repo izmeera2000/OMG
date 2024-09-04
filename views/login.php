@@ -54,8 +54,7 @@ include (getcwd()  .'/admin/server.php');
 					<div class="row">
 						<div class="col-md-6 col-12 mt-3 mt-md-0 form-group">
 						<label for="username" class="form-label">Email address</label>
-							<input type="text" name="username" class="form-control" id="name" placeholder="Please Enter Your Username Or Email"
-								>
+							<input type="text" name="username" class="form-control" id="name" placeholder="Please Enter Your Username Or Email">
 							<div class="validate"></div>
 						</div>
 						<div class="col-md-6 col-12 form-group mt-3 mt-md-0">

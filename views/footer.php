@@ -6,7 +6,7 @@
 
             <div class="col-lg-6 col-md-6 footer-contact">
                 <!-- <h3>OMG Computer</h3> -->
-			<div class="logo2"><img src="assets/img/logo3.png" alt="" class="img-fluid"></div>
+			<div class="logo2"><img src="<?php echo $site_url ?>assets/img/logo3.png" alt="" class="img-fluid"></div>
 
                 <p>BS8-13A, Unisuites Kampar,<br> 2222, Jalan Batu Karang,<br> Taman Bandar Baru,<br> Kampar Perak 31900<br><br>
                     <!-- A108 Adam Street <br> -->

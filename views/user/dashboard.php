@@ -27,8 +27,8 @@ include (getcwd()  .'/admin/server.php');
 				<div class="d-flex justify-content-between align-items-center">
 					<h2>Dashboard</h2>
 					<ol>
-						<li><a href="index.php">Home</a></li>
-						<li><a href=" ">Account</a></li>
+					<li><a href="<?php echo $site_url ?>">Home</a></li>
+					<li><a href="<?php echo $site_url ?>user">Account</a></li>
 						<li>Dashboard</li>
 					</ol>
 				</div>

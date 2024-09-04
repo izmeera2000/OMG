@@ -1,17 +1,28 @@
+<?php
+include(getcwd() . '/admin/server.php');
+
+
+
+$product_id = str_replace('shop/product/', '', $request);
+$product_id = strtok($product_id, '/');
+// echo $first; // home
+// echo $product_id;
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include ('head.php') ?>
+<?php include(getcwd() . '/views/' . 'head.php') ?>
 
 
 <body>
 
 	<!-- ======= Top Bar ======= -->
-	<?php include ('topbar.php') ?>
+	<?php include(getcwd() . '/views/' . 'topbar.php') ?>
 
 
 	<!-- ======= Header ======= -->
-	<?php include ('header.php') ?>
+	<?php include(getcwd() . '/views/' . 'header.php') ?>
 
 
 	<main id="main">
@@ -23,8 +34,8 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<h2>Product</h2>
 					<ol>
-						<li><a href="index.html">Home</a></li>
-						<li>Shop</li>
+						<li><a href="<?php echo $site_url ?>">Home</a></li>
+						<li><a href="<?php echo $site_url ?>shop">Shop</a></li>
 						<li>Product</li>
 					</ol>
 				</div>
@@ -53,17 +64,35 @@
 							<div class="product-preview">
 								<img src="assets/img/logo3.png" alt="">
 							</div> -->
-						<div id="carouselExample" class="carousel slide">
+						<div id="carouselExample" class="carousel slide ">
 							<div class="carousel-inner">
-								<div class="carousel-item product-preview active">
-									<img src="assets/img/logo3.png" alt="">
-								</div>
-								<div class="carousel-item product-preview">
-									<img src="assets/img/logo3.png" alt="">
-								</div>
-								<div class="carousel-item product-preview">
-									<img src="assets/img/logo3.png" alt="">
-								</div>
+
+
+								<?php
+								$query =
+									"SELECT * FROM product_image WHERE product_id='$product_id' ORDER BY image_order ASC";
+								$results = mysqli_query($db, $query);
+								if (mysqli_num_rows($results) > 0) {
+
+
+									while ($images = mysqli_fetch_assoc($results)) {
+
+										// var_dump($images)
+										?>
+										<div
+											class="carousel-item product-preview  <?php echo ($images['image_order'] == 1) ? "active" : " " ?>">
+										<div class="carousel-container">
+
+											<img class=""
+												src="<?php echo $site_url ?>assets/img/product/<?php echo $images['product_id'] ?>/<?php echo $images['image_url'] ?>">
+										</div>
+										</div>
+
+										<?php
+
+									}
+								}
+								?>
 							</div>
 							<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
 								data-bs-slide="prev">
@@ -103,45 +132,97 @@
 					<!-- /Product thumb imgs -->
 
 					<!-- Product details -->
-					<div class="col-md-5">
-						<div class="product-details">
-							<h2 class="product-name">product name goes here</h2>
-							<div>
-								<div class="product-rating">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-								</div>
-								<a class="review-link" href="#">10 Review(s) | Add your review</a>
-							</div>
-							<div>
-								<h3 class="product-price">RM980.00 <del class="product-old-price">RM990.00</del></h3>
-								<span class="product-available">In Stock</span>
-							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+					<?php
 
-							<div class="product-options">
-								<label>
-									Ram
-									<select class="input-select">
-										<option value="0">32GB DDR5</option>
-									</select>
-								</label>
-								<label>
-									Storage
-									<select class="input-select">
-										<option value="0">256 GB SSD</option>
-									</select>
-								</label>
-							</div>
-							<div class="col">
+					$query =
+						"SELECT * FROM product WHERE id='$product_id'";
+					$results = mysqli_query($db, $query);
+					if (mysqli_num_rows($results) > 0) {
 
-								<div class="add-to-cart d-flex justify-content-end">
-									<!-- <div class="qty-label">
+
+						while ($product = mysqli_fetch_assoc($results)) {
+
+							?>
+							<div class="col-md-5">
+								<div class="d-none" id="user_id"><?php echo $_SESSION['user_details']['id'] ?></div>
+								<div class="d-none" id="product_id"><?php echo $product['id'] ?></div>
+								<div class="d-none" id="product-price-ori"><?php echo $product['price'] ?></div>
+
+								<div class="product-details">
+									<h2 class="product-name"><?php echo $product['name'] ?></h2>
+									<div>
+										<div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star-o"></i>
+										</div>
+										<!-- <a class="review-link" href="#">10 Review(s)</a> -->
+									</div>
+									<div>
+										
+										<h3 class="product-price" id="product-price-new" >RM<?php echo number_format((float) $product['price'], 2, '.', '') ?></h3>
+										<h3 class="product-price"><del class="product-old-price">RM990.00</del></h3>
+										<span
+											class="product-available"><?php echo ($product['stock'] > 0) ? "IN STOCK" : "Unavailable" ?></span>
+									</div>
+									<p><?php echo $product['description'] ?></p>
+
+									<div class="product-options">
+
+										<?php
+
+
+										$query2 = "SELECT * FROM `product_option`  INNER JOIN product_spec_category ON product_option.category = product_spec_category.id WHERE product_id=$product_id GROUP BY category ";
+										$results2 = mysqli_query($db, $query2);
+										// echo $query2;
+										if (mysqli_num_rows($results2) > 0) {
+											// echo $product_id;
+											$option = 0;
+
+											while ($product_option = mysqli_fetch_assoc($results2)) {
+												$option++;
+												?>
+
+												<label class="mt-2">
+													<?php echo $product_option['name'] ?>
+													<select class="input-select" id="option_id-<?php echo $product_option['id'] ?>"
+														onchange="adjust();">
+
+														<?php
+														$category_name = $product_option['name'];
+														$query3 = "SELECT product_option.*,product_spec_category.name FROM `product_option`  INNER JOIN product_spec_category ON product_option.category = product_spec_category.id WHERE product_id=$product_id  AND name = '$category_name' ";
+														$results3 = mysqli_query($db, $query3);
+
+														if (mysqli_num_rows($results3) > 0) {
+															while ($product_option_select = mysqli_fetch_assoc($results3)) {
+
+																?>
+																<option
+																	value="<?php echo $product_option_select['id'] ?>-<?php echo $product_option_select['addprice'] ?>">
+																	<?php echo $product_option_select['value'] ?>
+																</option>
+
+
+																<?php
+															}
+														}
+														?>
+													</select>
+												</label>
+												<?php
+											}
+
+										}
+										?>
+										<div class="d-none" id="option"><?php echo $option ?></div>
+
+									</div>
+									<div class="col">
+
+										<div class="add-to-cart d-flex justify-content-center">
+											<!-- <div class="qty-label">
 									Qty
 									<div class="input-number">
 										<input type="number" value="1">
@@ -149,33 +230,42 @@
 										<span class="qty-down">-</span>
 									</div>
 								</div> -->
-									<button class="add-to-cart-btn "><i class="fa fa-shopping-cart"></i> add to
-										cart</button>
-								</div>
-							</div>
+											<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> buy
+												now</button>
+											<button class="add-to-cart-btn  mx-2 " <?php
+											$login = $site_url . 'login';
 
-							<!-- <ul class="product-btns">
+											echo (isset($_SESSION['user_details']['id'])) ? "onclick='addtoCart()'" : "onclick=window.location.href='$login'" ?>><i class="fa fa-shopping-cart"></i>
+												add to
+												cart</button>
+										</div>
+									</div>
+
+									<!-- <ul class="product-btns">
 								<li><a href="#"><i class="fa fa-heart"></i> add to wishlist</a></li>
 								<li><a href="#"><i class="fa fa-exchange"></i> add to compare</a></li>
 							</ul> -->
-							<div class="col">
-								<ul class="product-links">
-									<li>Category:</li>
-									<!-- <li><a href="#">Computer</a></li> -->
-									<li><a href="#">Prebuilt</a></li>
-								</ul>
+									<div class="col">
+										<ul class="product-links">
+											<li>Category:</li>
+											<!-- <li><a href="#">Computer</a></li> -->
+											<li><a href="#">Prebuilt</a></li>
+										</ul>
+									</div>
+
+									<ul class="product-links">
+										<li>Share:</li>
+										<li><a href="#"><i class="bi bi-facebook"></i></a></li>
+										<li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
+										<!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
+										<!-- <li><a href="#"><i class="fa fa-envelope"></i></a></li> -->
+									</ul>
+
+								</div>
 							</div>
 
-							<ul class="product-links">
-								<li>Share:</li>
-								<li><a href="#"><i class="bi bi-facebook"></i></a></li>
-								<li><a href="#"><i class="bi bi-whatsapp"></i></a></li>
-								<!-- <li><a href="#"><i class="fa fa-google-plus"></i></a></li> -->
-								<!-- <li><a href="#"><i class="fa fa-envelope"></i></a></li> -->
-							</ul>
-
-						</div>
-					</div>
+						<?php }
+					} ?>
 					<!-- /Product details -->
 
 					<!-- Product tab -->
@@ -432,15 +522,15 @@
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
-	<?php include ('footer.php') ?>
+	<?php include(getcwd() . '/views/' . 'footer.php') ?>
 
 	<!-- End Footer -->
 
-	<?php include ('preloader.php') ?>
+	<?php include(getcwd() . '/views/' . 'preloader.php') ?>
 
-	<?php include ('backtotoparrow.php') ?>
+	<?php include(getcwd() . '/views/' . 'backtotoparrow.php') ?>
 
-	<?php include ('script.php') ?>
+	<?php include(getcwd() . '/views/' . 'script.php') ?>
 
 
 

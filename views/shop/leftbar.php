@@ -49,7 +49,7 @@
 										</select>
 									</label>
 
-									<label>
+									<label class="mt-2">
 										Show:
 										<select class="input-select">
 											<option value="0">20</option>

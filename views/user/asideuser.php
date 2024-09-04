@@ -5,7 +5,7 @@
 							<div class="checkbox-filter">
 
 								<div class="input-checkbox">
-									<a href="profile" class="nav-link show active">
+									<a href="<?php echo $site_url ?>user/profile" class="nav-link show active">
 										<!-- <span></span> -->
 										Profile
 										<!-- <small>(1)</small> -->
@@ -13,9 +13,18 @@
 
 								</div>
 								<div class="input-checkbox">
-									<a href="addressbook" class="nav-link">
+									<a href="<?php echo $site_url ?>user/addressbook" class="nav-link">
 										<!-- <span></span> -->
 										Address Book
+										<!-- <small>(1)</small> -->
+									</a>
+
+								</div>
+
+								<div class="input-checkbox">
+									<a href="<?php echo $site_url ?>user/cart" class="nav-link">
+										<!-- <span></span> -->
+										Cart
 										<!-- <small>(1)</small> -->
 									</a>
 
@@ -26,7 +35,7 @@
 							<div class="checkbox-filter">
 
 								<div class="input-checkbox">
-									<a href="myorders" class="nav-link">
+									<a href="<?php echo $site_url ?>user/myorders" class="nav-link">
 										<!-- <span></span> -->
 										My Orders
 										<!-- <small>(1)</small> -->
@@ -34,7 +43,7 @@
 
 								</div>
 								<div class="input-checkbox">
-									<a href="cancelandreturn" class="nav-link">
+									<a href="<?php echo $site_url ?>user/cancelandreturn" class="nav-link">
 										<!-- <span></span> -->
 										My Cancellations & Returns
 										<!-- <small>(1)</small> -->
@@ -43,6 +52,8 @@
 								</div>
 
 							</div>
+
+
 						</div>
 
 
