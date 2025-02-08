@@ -51,10 +51,8 @@
 					My Account
 				</div>
 			</button> -->
-			<button href="#appointment" class="btn appointment-btn scrollto me-md-3"><i class="bi bi-person"></i><br>
-				<div class="d-none d-xl-block">
-					Login
-				</div>
+			<button href="#appointment" class="btn appointment-btn scrollto me-md-3"><i class="bi bi-person-fill"></i><br>
+ 
 			</button>
 		</div>
 	</header><!-- End Header -->
