@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include ('head.php') ?>
+<?php include('template/head.php') ?>
 
 
 <body>
 
 	<!-- ======= Top Bar ======= -->
-	<?php include ('topbar.php') ?>
+	<?php include('template/topbar.php') ?>
 
 
 	<!-- ======= Header ======= -->
-	<?php include ('header.php') ?>
+	<?php include('template/header.php') ?>
 
 
 	<main id="main">
@@ -23,7 +23,7 @@
 				<div class="d-flex justify-content-between align-items-center">
 					<h2>Shop</h2>
 					<ol>
-						<li><a href="index.html">Home</a></li>
+						<!-- <li><a href="index.html">Home</a></li> -->
 						<li>Shop</li>
 					</ol>
 				</div>
@@ -261,7 +261,7 @@
 									</div>
 									<div class="product-body">
 										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="product.php">product name goes here</a></h3>
+										<h3 class="product-name"><a href="shop/test">product name goes here</a></h3>
 										<h4 class="product-price">RM980.00 <del class="product-old-price">RM990.00</del>
 										</h4>
 										<div class="product-rating">
@@ -319,15 +319,15 @@
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
-	<?php include ('footer.php') ?>
+	<?php include('template/footer.php') ?>
 
 	<!-- End Footer -->
 
-	<?php include ('preloader.php') ?>
+	<?php include('template/preloader.php') ?>
 
-	<?php include ('backtotoparrow.php') ?>
+	<?php include('template/backtotoparrow.php') ?>
 
-	<?php include ('script.php') ?>
+	<?php include('template/script.php') ?>
 
 
 

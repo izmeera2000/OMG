@@ -1,3 +1,4 @@
+
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -26,7 +27,7 @@
 	<link rel="stylesheet" href="assets/vendor/nouislider/nouislider.min.css">
 
 	<!-- Template Main CSS File -->
-	<link href="assets/css/style.css" rel="stylesheet">
+	<link href="<?php echo $rootPath; ?>assets/css/style.css" rel="stylesheet">
 
 	<link rel="stylesheet" type="text/css" href="assets/vendor/slick/slick.css"/>
 	<!-- <link rel="stylesheet" type="text/css" href="assets/vendor/slick/slick-theme.css"/> -->

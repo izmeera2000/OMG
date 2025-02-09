@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include ('head.php') ?>
+<?php include('template/head.php') ?>
 
 
 <body>
 
 	<!-- ======= Top Bar ======= -->
-	<?php include ('topbar.php') ?>
+	<?php include('template/topbar.php') ?>
 
 
 	<!-- ======= Header ======= -->
-	<?php include ('header.php') ?>
+	<?php include('template/header.php') ?>
 
 
 	<main id="main">
@@ -53,10 +53,11 @@
 							<div class="product-preview">
 								<img src="assets/img/logo3.png" alt="">
 							</div> -->
+
 						<div id="carouselExample" class="carousel slide">
 							<div class="carousel-inner">
 								<div class="carousel-item product-preview active">
-									<img src="assets/img/logo3.png" alt="">
+									<img src="<?php echo $rootPath ?>assets/img/logo3.png" alt="">
 								</div>
 								<div class="carousel-item product-preview">
 									<img src="assets/img/logo3.png" alt="">
@@ -432,15 +433,15 @@
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
-	<?php include ('footer.php') ?>
+	<?php include('template/footer.php') ?>
 
 	<!-- End Footer -->
 
-	<?php include ('preloader.php') ?>
+	<?php include('template/preloader.php') ?>
 
-	<?php include ('backtotoparrow.php') ?>
+	<?php include('template/backtotoparrow.php') ?>
 
-	<?php include ('script.php') ?>
+	<?php include('template/script.php') ?>
 
 
 
