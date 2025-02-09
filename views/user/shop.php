@@ -1,3 +1,7 @@
+<?php 
+include('includes/functions.php') 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 

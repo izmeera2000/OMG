@@ -1,8 +1,8 @@
 <?php
 // Simple Router with Functions
-
+session_start();
 $requestUri = trim($_SERVER['REQUEST_URI'], '/');
-$basePath = 'OMG'; // Subfolder path
+include 'includes/settings.php';
 
 // Remove basePath from the request URI if it exists
 if (strpos($requestUri, $basePath) === 0) {

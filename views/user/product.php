@@ -1,3 +1,9 @@
+<?php
+include('includes/functions.php')
+
+	?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,13 +63,13 @@
 						<div id="carouselExample" class="carousel slide">
 							<div class="carousel-inner">
 								<div class="carousel-item product-preview active">
-									<img src="<?php echo $rootPath ?>assets/img/logo3.png" alt="">
+									<img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="">
 								</div>
 								<div class="carousel-item product-preview">
-									<img src="assets/img/logo3.png" alt="">
+									<img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="">
 								</div>
 								<div class="carousel-item product-preview">
-									<img src="assets/img/logo3.png" alt="">
+									<img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="">
 								</div>
 							</div>
 							<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
