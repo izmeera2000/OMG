@@ -27,11 +27,10 @@ include('includes/functions.php')
 			<div class="container">
 
 				<div class="d-flex justify-content-between align-items-center">
-					<h2>Product</h2>
+					<!-- <h2>COMPUTER</h2> -->
 					<ol>
-						<li><a href="index.html">Home</a></li>
-						<li>Shop</li>
-						<li>Product</li>
+						<li><a href="<?php echo $basePath2; ?>/shop">Shop</a></li>
+						<li><?php echo $productName ?></li>
 					</ol>
 				</div>
 
@@ -63,13 +62,10 @@ include('includes/functions.php')
 						<div id="carouselExample" class="carousel slide">
 							<div class="carousel-inner">
 								<div class="carousel-item product-preview active">
-									<img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="">
+									<img src="<?php echo $rootPath; ?>assets/img/products/pc1.png" alt="">
 								</div>
-								<div class="carousel-item product-preview">
-									<img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="">
-								</div>
-								<div class="carousel-item product-preview">
-									<img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="">
+								<div class="carousel-item product-preview  ">
+									<img src="<?php echo $rootPath; ?>assets/img/products/pc1.png" alt="">
 								</div>
 							</div>
 							<button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
@@ -110,7 +106,7 @@ include('includes/functions.php')
 					<!-- /Product thumb imgs -->
 
 					<!-- Product details -->
-					<div class="col-md-5">
+					<div class="col-12 col-md-5">
 						<div class="product-details">
 							<h2 class="product-name">product name goes here</h2>
 							<div>
@@ -121,7 +117,7 @@ include('includes/functions.php')
 									<i class="fa fa-star"></i>
 									<i class="fa fa-star-o"></i>
 								</div>
-								<a class="review-link" href="#">10 Review(s) | Add your review</a>
+								<!-- <a class="review-link" href="#">10 Review(s) | Add your review</a> -->
 							</div>
 							<div>
 								<h3 class="product-price">RM980.00 <del class="product-old-price">RM990.00</del></h3>
@@ -131,20 +127,31 @@ include('includes/functions.php')
 								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
-							<div class="product-options">
-								<label>
-									Ram
+							<div class="product-options row">
+								<div class="col">
+									<label>Ram</label>
 									<select class="input-select">
 										<option value="0">32GB DDR5</option>
 									</select>
-								</label>
-								<label>
-									Storage
+
+								</div>
+								<div class="col">
+									<label>Storage</label>
 									<select class="input-select">
 										<option value="0">256 GB SSD</option>
 									</select>
-								</label>
+
+								</div>
+
+								<div class="col">
+									<label>2nd Storage</label>
+									<select class="input-select">
+										<option value="0">256 GB SSD</option>
+									</select>
+
+								</div>
 							</div>
+
 							<div class="col">
 
 								<div class="add-to-cart d-flex justify-content-end">
@@ -325,7 +332,7 @@ include('includes/functions.php')
 										<!-- /Rating -->
 
 										<!-- Reviews -->
-										<div class="col-md-6">
+										<div class="col-md-9">
 											<div id="reviews">
 												<ul class="reviews">
 													<li>
@@ -395,7 +402,7 @@ include('includes/functions.php')
 										<!-- /Reviews -->
 
 										<!-- Review Form -->
-										<div class="col-md-3">
+										<!-- <div class="col-md-3">
 											<div id="review-form">
 												<form class="review-form">
 													<input class="input" type="text" placeholder="Your Name">
@@ -419,7 +426,7 @@ include('includes/functions.php')
 													<button class="primary-btn">Submit</button>
 												</form>
 											</div>
-										</div>
+										</div> -->
 										<!-- /Review Form -->
 									</div>
 								</div>

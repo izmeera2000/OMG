@@ -3,7 +3,7 @@
 
 			<!-- <h1 class="logo me-auto"><a href="index.html">Omg Computer</a></h1> -->
 			<!-- Uncomment below if you prefer to use an image logo -->
-			<a href="index.php" class="logo me-auto"><img src="<?php echo $rootPath; ?>assets/img/logo3.png" alt="" class="img-fluid"></a>
+			<a href="index.php" class="logo me-auto"><img src="<?php echo $rootPath; ?>assets/img/logo5.png" alt="" class="img-fluid"></a>
 
 			<nav id="navbar" class="navbar order-last order-lg-0">
 				<ul>

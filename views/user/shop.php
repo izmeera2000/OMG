@@ -1,7 +1,7 @@
-<?php 
-include('includes/functions.php') 
+<?php
+include('includes/functions.php')
 
-?>
+	?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +28,7 @@ include('includes/functions.php')
 					<h2>Shop</h2>
 					<ol>
 						<!-- <li><a href="index.html">Home</a></li> -->
-						<li>Shop</li>
+						<!-- <li>Shop</li> -->
 					</ol>
 				</div>
 
@@ -50,7 +50,7 @@ include('includes/functions.php')
 									<input type="checkbox" id="category-1">
 									<label for="category-1">
 										<span></span>
-										Prebuilt
+										Gaming PC
 										<small>(1)</small>
 									</label>
 								</div>
@@ -218,28 +218,28 @@ include('includes/functions.php')
 						<!-- /aside Widget -->
 						<div class="aside">
 
-							<div class="store-filter row">
-								<div class="col store-sort">
-									<label>
-										Sort By:
+							<div class="store-filter  ">
+								<div class="row store-sort">
+									<label class="col">
+									<div>Sort By:</div>
 										<select class="input-select">
 											<option value="0">Popular</option>
 											<option value="1">Recent</option>
 										</select>
 									</label>
 
-									<label>
-										Show:
+									<label class="col">
+										<div>Show:</div>
 										<select class="input-select">
 											<option value="0">20</option>
 											<option value="1">50</option>
 										</select>
 									</label>
 								</div>
-								<ul class="col store-grid float-end">
-									<!-- <li class=""><a href="#"><i class="bi bi-filter"></i></a></li> -->
-									<!-- <li><button type="button" class="btn btn-primary"><i class="bi bi-filter"></i></button></li> -->
-								</ul>
+								<!-- <ul class="col store-grid float-end"> -->
+								<!-- <li class=""><a href="#"><i class="bi bi-filter"></i></a></li> -->
+								<!-- <li><button type="button" class="btn btn-primary"><i class="bi bi-filter"></i></button></li> -->
+								<!-- </ul> -->
 							</div>
 						</div>
 					</div>
@@ -255,39 +255,31 @@ include('includes/functions.php')
 						<div class="row">
 							<!-- product -->
 							<div class="col-6 col-lg-4">
-								<div class="product">
-									<div class="product-img">
-										<img src="assets/img/logo3.png" alt="">
-										<div class="product-label">
-											<span class="sale">-30%</span>
-											<span class="new">NEW</span>
+								<div class="product position-relative">
+									<a href="shop/test" class="stretched-link text-decoration-none">
+										<div class="product-img">
+											<img src="assets/img/logo3.png" alt="">
+											<div class="product-label">
+												<span class="sale">-30%</span>
+												<span class="new">NEW</span>
+											</div>
 										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Category</p>
-										<h3 class="product-name"><a href="shop/test">product name goes here</a></h3>
-										<h4 class="product-price">RM980.00 <del class="product-old-price">RM990.00</del>
-										</h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
+										<div class="product-body">
+											<p class="product-category">Category</p>
+											<h3 class="product-name">Product name goes here</h3>
+											<h4 class="product-price">RM980.00 <del
+													class="product-old-price">RM990.00</del></h4>
+											<div class="product-rating">
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+												<i class="fa fa-star"></i>
+											</div>
 										</div>
-										<!-- <div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span
-													class="tooltipp">add to wishlist</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span
-													class="tooltipp">add to compare</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span
-													class="tooltipp">quick view</span></button>
-										</div> -->
-									</div>
-									<!-- <div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
-									</div> -->
+									</a>
 								</div>
+
 							</div>
 							<!-- /product -->
 
@@ -329,7 +321,7 @@ include('includes/functions.php')
 
 	<?php include('template/preloader.php') ?>
 
-	<?php include('template/backtotoparrow.php') ?>
+	<!-- <?php include('template/backtotoparrow.php') ?> -->
 
 	<?php include('template/script.php') ?>
 

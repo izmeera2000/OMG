@@ -1,6 +1,10 @@
 <?php
 // Simple Router with Functions
 session_start();
+
+include('includes/functions.php');
+
+
 $requestUri = trim($_SERVER['REQUEST_URI'], '/');
 include 'includes/settings.php';
 
@@ -43,6 +47,8 @@ $routes = [
 if (isset($routes[$requestUri])) {
     call_user_func($routes[$requestUri]);
 } elseif (strpos($requestUri, 'shop/') === 0) {
+
+    
     $productName = substr($requestUri, 5); // Extract product name
     product($productName);
 } else {
