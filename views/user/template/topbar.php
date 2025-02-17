@@ -2,7 +2,7 @@
 		<div class="container d-flex justify-content-between">
 			<div class="contact-info d-flex align-items-center">
 				<i class="bi bi-envelope"></i> <a href="mailto:izmeera2000@gmail.com">izmeera2000@gmail.com</a>
-				<i class="bi bi-phone"></i><a href="tel:+60184694879"> +6018 469 4879 </a>
+				<i class="bi bi-phone"></i><a href="tel:+601123881290"> +6011 2388 1290 </a>
 			</div>
 			<div class="d-none d-lg-flex social-links align-items-center">
 				<a href="#" class="twitter"><i class="bi bi-twitter"></i></a>

@@ -109,6 +109,26 @@ h6 {
   padding: 20px !important;
 }
 
+.filter-float {
+  position: fixed;
+  /* visibility: hidden; */
+  /* opacity: 0; */
+  right: 15px;
+  bottom: 15px;
+  z-index: 996;
+  background: #f85728;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+}
+
+.filter-float i {
+  font-size: 28px;
+  color: #fff;
+  line-height: 0;
+}
+
 /*--------------------------------------------------------------
 # Top Bar
 --------------------------------------------------------------*/
@@ -199,7 +219,7 @@ h6 {
 * Appointment Button *
 */
 .appointment-btn {
-  margin-left: 25px;
+  margin-left: 20px;
   background: #f85728;
   color: #fff;
   border-radius: 50%;
@@ -214,7 +234,11 @@ h6 {
   /* height: 50px; */
 
 }
-
+.appointment-btn  .badge {
+  color: #fbaf42;
+ background-color: #fbaf42;
+ top: 5px;
+}
 .appointment-btn:hover {
   background: #ff6c3f;
   color: #fff;
@@ -222,7 +246,8 @@ h6 {
 
 @media (max-width: 1024px) {
   .appointment-btn {
-    margin: 0 15px 0 0;
+    margin: 0 0 0 20px;
+    
     /* padding: 6px 18px; */
   }
 }
@@ -282,7 +307,7 @@ h6 {
 .navbar .active:focus,
 .navbar li:hover>a {
   color: #f85728;
-  border-color: #f85728;
+  border-color: #fbaf42 ;
 }
 
 .navbar .dropdown ul {
@@ -362,6 +387,7 @@ h6 {
   display: none;
   line-height: 0;
   transition: 0.5s;
+  margin-left: 20px;
 }
 
 .mobile-nav-toggle.bi-x {
@@ -417,7 +443,7 @@ h6 {
 .navbar-mobile a:focus {
   padding: 10px 20px;
   font-size: 15px;
-  color: #2c4964;
+  color: #f85728;
   border: none;
 }
 
@@ -472,14 +498,19 @@ h6 {
 #hero {
   width: 100%;
   height: 90vh;
-  background: url("../img/hero-bg.jpg") top center;
+  background: url("https://game.info.intel.com/hs-fs/hubfs/07.%2023%20GAP%205%20Golden%20Rules/Battlestation%20article/AbIU9t3.jpg?width=1080&name=AbIU9t3.jpg") top center;
   background-size: cover;
   margin-bottom: -200px;
   
 }
+#hero::before {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.7));
+}
+ 
 
 #hero .container {
   position: relative;
+  
 }
 
 #hero h1 {
@@ -488,7 +519,7 @@ h6 {
   font-weight: 700;
   line-height: 56px;
   text-transform: uppercase;
-  /* color: #2c4964; */
+  /* color: #f85728; */
   color: #fff;
   /* text-shadow: 0px 0px 4px #9b9a9a; */
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7); /* Text shadow for contrast */
@@ -603,7 +634,7 @@ section {
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #2c4964;
+  color: #f85728;
 }
 
 .section-title h2::before {
@@ -623,7 +654,9 @@ section {
   display: block;
   width: 40px;
   height: 3px;
-  background: #f85728;
+  background: #fbaf42
+
+  ;
   bottom: 0;
   left: calc(50% - 20px);
 }
@@ -761,16 +794,16 @@ section {
 /*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
-.about .icon-boxes h4 {
+/* .about .icon-boxes h4 {
   font-size: 18px;
   color: #4b7dab;
   margin-bottom: 15px;
-}
+} */
 
 .about .icon-boxes h3 {
   font-size: 28px;
   font-weight: 700;
-  color: #2c4964;
+  color: #f85728;
   margin-bottom: 15px;
 }
 
@@ -808,26 +841,26 @@ section {
   margin-left: 85px;
   font-weight: 700;
   margin-bottom: 10px;
-  font-size: 18px;
+  font-size: 20px;
 }
 
-.about .icon-box .title a {
+.about .icon-box .title  {
   color: #343a40;
   transition: 0.3s;
 }
 
-.about .icon-box .title a:hover {
+.about .icon-box .title:hover {
   color: #f85728;
 }
 
 .about .icon-box .description {
   margin-left: 85px;
   line-height: 24px;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 .about .video-box {
-  background: url("../img/about.jpg") center center no-repeat;
+  background: url("../img/giphy.gif") center center no-repeat;
   background-size: cover;
   min-height: 500px;
 }
@@ -954,7 +987,7 @@ section {
   padding: 0;
   margin: 0;
   font-family: "Raleway", sans-serif;
-  font-size: 14px;
+  font-size: 18px;
 }
 
 /*--------------------------------------------------------------
@@ -996,7 +1029,7 @@ section {
   top: -8px;
   height: 100%;
   width: 100%;
-  background: rgba(25, 119, 204, 0.2);
+  background: rgba(251,175,66, 0.2);
   border-radius: 5px;
   transition: all 0.3s ease-out 0s;
   transform: translateZ(-1px);
@@ -1010,12 +1043,12 @@ section {
 }
 
 .services .icon-box h4 a {
-  color: #2c4964;
+  color: #fbaf42;
 }
 
 .services .icon-box p {
   line-height: 24px;
-  font-size: 14px;
+  font-size: 18px;
   margin-bottom: 0;
 }
 
@@ -1153,7 +1186,7 @@ section {
   border: 0;
   padding: 12px 15px 12px 0;
   transition: 0.3s;
-  color: #2c4964;
+  color: #f85728;
   border-radius: 0;
   border-right: 2px solid #ebf1f6;
   font-weight: 600;
@@ -1166,7 +1199,7 @@ section {
 
 .departments .nav-link.active {
   color: #f85728;
-  border-color: #f85728;
+  border-color: #fbaf42;
 }
 
 .departments .tab-pane.active {
@@ -1177,7 +1210,7 @@ section {
   font-size: 26px;
   font-weight: 600;
   margin-bottom: 20px;
-  color: #2c4964;
+  color: #f85728;
 }
 
 .departments .details p {
@@ -1236,7 +1269,7 @@ section {
   font-weight: 700;
   margin-bottom: 5px;
   font-size: 20px;
-  color: #2c4964;
+  color: #f85728;
 }
 
 .doctors .member span {
@@ -1526,7 +1559,7 @@ section {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 5px;
-  color: #2c4964;
+  color: #f85728;
 }
 
 .contact .info p {
@@ -2344,7 +2377,7 @@ max-width: 120px;
 }
 
 .product-details .add-to-cart .add-to-cart-btn {
-  position: static;
+  position: relative;  /* Make button the positioning context */
   border: 2px solid transparent;
   height: 40px;
   padding: 0 30px;
@@ -2355,7 +2388,6 @@ max-width: 120px;
   border-radius: 40px;
   -webkit-transition: 0.2s all;
   transition: 0.2s all;
-  /* float:left; */
 }
 
 .product-details .add-to-cart .add-to-cart-btn>i {
@@ -2368,6 +2400,7 @@ max-width: 120px;
   color: #ff6c3f;
   opacity: 0;
   visibility: hidden;
+  transition: 0.2s all;  /* Added transition for smooth effect */
 }
 
 .product-details .add-to-cart .add-to-cart-btn:hover {
@@ -2381,6 +2414,7 @@ max-width: 120px;
   opacity: 1;
   visibility: visible;
 }
+
 
 .product-details .add-to-cart .qty-label {
   display: inline-block;
@@ -2953,4 +2987,148 @@ textarea.input {
 
 .store-grid li a {
   display: block;
+}
+
+
+
+
+
+/*=========================================================
+	05 -> HOT DEAL
+===========================================================*/
+
+#hot-deal.section {
+  padding: 60px 0px;
+  margin: 30px 0px;
+  background-color: #E4E7ED;
+  background-image: url('../img/hotdeal.png');
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hot-deal {
+  text-align: center;
+}
+
+.hot-deal .hot-deal-countdown {
+  margin-bottom: 30px;
+}
+
+.hot-deal .hot-deal-countdown>li {
+  position: relative;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background: #D10024e6;
+  text-align: center;
+  border-radius: 50%;
+  margin: 0px 5px;
+}
+
+.hot-deal .hot-deal-countdown>li>div {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.hot-deal .hot-deal-countdown>li>div h3 {
+  color: #FFF;
+  margin-bottom: 0px;
+}
+
+.hot-deal .hot-deal-countdown>li>div span {
+  display: block;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #FFF;
+}
+
+.hot-deal p {
+  text-transform: uppercase;
+  font-size: 24px;
+}
+
+.hot-deal .cta-btn {
+  margin-top: 15px;
+}
+
+
+
+/*=========================================================
+	09 -> CHECKOUT PAGE
+===========================================================*/
+
+.billing-details {
+  margin-bottom: 30px;
+}
+
+.shiping-details {
+  margin-bottom: 30px;
+}
+
+.order-details {
+  position: relative;
+  padding: 0px 30px 30px;
+  border-right: 1px solid #E4E7ED;
+  border-left: 1px solid #E4E7ED;
+  border-bottom: 1px solid #E4E7ED;
+}
+
+.order-details:before {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -15px;
+  height: 30px;
+  border-top: 1px solid #E4E7ED;
+  border-left: 1px solid #E4E7ED;
+  border-right: 1px solid #E4E7ED;
+}
+
+.order-summary {
+  margin: 15px 0px;
+}
+
+.order-summary .order-col {
+  display: table;
+  width: 100%;
+}
+
+.order-summary .order-col:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.order-summary .order-col>div {
+  display: table-cell;
+  padding: 10px 0px;
+}
+
+.order-summary .order-col>div:first-child {
+  width: calc(100% - 150px);
+}
+
+.order-summary .order-col>div:last-child {
+  width: 150px;
+  text-align: right;
+}
+
+.order-summary .order-col .order-total {
+  font-size: 24px;
+  color: #D10024;
+}
+
+.order-details .payment-method {
+  margin: 30px 0px;
+}
+
+.order-details .order-submit {
+  display: block;
+  margin-top: 30px;
 }

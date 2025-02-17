@@ -1,9 +1,3 @@
-<?php
-include('includes/functions.php')
-
-	?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,7 +24,7 @@ include('includes/functions.php')
 					<!-- <h2>COMPUTER</h2> -->
 					<ol>
 						<li><a href="<?php echo $basePath2; ?>/shop">Shop</a></li>
-						<li><?php echo $productName ?></li>
+						<li><?php echo $product['name'] ?></li>
 					</ol>
 				</div>
 
@@ -108,7 +102,7 @@ include('includes/functions.php')
 					<!-- Product details -->
 					<div class="col-12 col-md-5">
 						<div class="product-details">
-							<h2 class="product-name">product name goes here</h2>
+							<h2 class="product-name"><?php echo $product['name'] ?></h2>
 							<div>
 								<div class="product-rating">
 									<i class="fa fa-star"></i>
@@ -120,25 +114,53 @@ include('includes/functions.php')
 								<!-- <a class="review-link" href="#">10 Review(s) | Add your review</a> -->
 							</div>
 							<div>
-								<h3 class="product-price">RM980.00 <del class="product-old-price">RM990.00</del></h3>
+								<h3 class="product-price">RM<span
+										id="product-price"><?php echo number_format($product['base_price'], 2); ?></span>
+								</h3>
+								<!-- <del class="product-old-price">RM990.00</del> -->
+								</h3>
 								<span class="product-available">In Stock</span>
 							</div>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-								incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-								exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+							<p><?php echo $product['description'] ?></p>
 
 							<div class="product-options row">
-								<div class="col">
-									<label>Ram</label>
-									<select class="input-select">
-										<option value="0">32GB DDR5</option>
-									</select>
+								<?php
+								// Group specs by type
+								$groupedSpecs = [];
+								foreach ($specs as $spec) {
+									$groupedSpecs[$spec['spec_type']][] = $spec;
+								}
 
-								</div>
-								<div class="col">
+								// Store base price in a JS variable
+								$basePrice = $product['base_price'];
+								?>
+
+								<input type="hidden" id="base-price" value="<?php echo $basePrice; ?>">
+
+								<?php foreach ($groupedSpecs as $specType => $options): ?>
+									<div class="col">
+										<label><?php echo htmlspecialchars($specType); ?></label>
+										<select class="input-select spec-selector"
+											data-type="<?php echo htmlspecialchars($specType); ?>">
+											<?php foreach ($options as $option): ?>
+												<option value="<?php echo htmlspecialchars($option['id']); ?>"
+													data-extra-price="<?php echo $option['extra_price']; ?>">
+													<?php echo htmlspecialchars($option['spec_value']); ?>
+													<!-- <?php if ($option['extra_price'] > 0): ?>
+														(+ RM<?php echo number_format($option['extra_price'], 2); ?>)
+													<?php endif; ?> -->
+												</option>
+											<?php endforeach; ?>
+										</select>
+									</div>
+								<?php endforeach; ?>
+
+
+								<!-- <div class="col">
 									<label>Storage</label>
 									<select class="input-select">
 										<option value="0">256 GB SSD</option>
+										<option value="1">512 GB SSD</option>
 									</select>
 
 								</div>
@@ -149,12 +171,14 @@ include('includes/functions.php')
 										<option value="0">256 GB SSD</option>
 									</select>
 
-								</div>
+								</div> -->
+
+
 							</div>
 
 							<div class="col">
 
-								<div class="add-to-cart d-flex justify-content-end">
+								<div class="add-to-cart d-flex justify-content-center">
 									<!-- <div class="qty-label">
 									Qty
 									<div class="input-number">
@@ -163,8 +187,11 @@ include('includes/functions.php')
 										<span class="qty-down">-</span>
 									</div>
 								</div> -->
-									<button class="add-to-cart-btn "><i class="fa fa-shopping-cart"></i> add to
+									<button class="add-to-cart-btn mx-1" id="addToCartBtn" data-product-id="1"><i
+											class="bi bi-cart-fill"></i> add to
 										cart</button>
+									<button class="add-to-cart-btn mx-1 "><i class="bi bi-bag-fill"></i> buy
+										now</button>
 								</div>
 							</div>
 
@@ -456,8 +483,88 @@ include('includes/functions.php')
 
 	<?php include('template/script.php') ?>
 
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const basePrice = parseFloat(document.getElementById("base-price").value);
+			const priceElement = document.getElementById("product-price");
+			const selectors = document.querySelectorAll(".spec-selector");
 
+			function updatePrice() {
+				let totalPrice = basePrice;
 
+				selectors.forEach(select => {
+					const selectedOption = select.options[select.selectedIndex];
+					const extraPrice = parseFloat(selectedOption.getAttribute("data-extra-price")) || 0;
+					totalPrice += extraPrice;
+				});
+
+				priceElement.textContent = totalPrice.toFixed(2);
+			}
+
+			// Add event listeners to all select elements
+			selectors.forEach(select => {
+				select.addEventListener("change", updatePrice);
+			});
+		});
+	</script>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			let addToCartBtn = document.querySelector("#addToCartBtn");
+
+			addToCartBtn.addEventListener("click", function () {
+				let productId = this.getAttribute("data-product-id");
+				let quantity = 1;
+				let selectedSpecs = [];
+
+				document.querySelectorAll(".spec-selector").forEach(select => {
+					selectedSpecs.push(select.value);
+				});
+
+				let productData = {
+					product_id: productId,
+					quantity: quantity,
+					selected_specs: selectedSpecs
+				};
+
+				// 🌟 1️⃣ Save to sessionStorage (Immediate UI)
+				let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+				let existingIndex = cart.findIndex(item => item.product_id == productId);
+
+				if (existingIndex !== -1) {
+					cart[existingIndex].quantity += quantity; // Update quantity
+				} else {
+					cart.push(productData);
+				}
+
+				sessionStorage.setItem("cart", JSON.stringify(cart));
+
+				// 🌟 2️⃣ Send to PHP for session storage
+				fetch('OMG/add_to_cart', {
+					method: "POST",
+					headers: { "Content-Type": "application/json" },
+					body: JSON.stringify({ action: "add_to_cart", cart: cart })
+				})
+					.then(response => response.json())
+					.then(data => {
+						alert(data.message);
+						// updateCartUI();
+					})
+					.catch(error => console.error("Error:", error));
+			});
+
+			// 🌟 3️⃣ Function to update cart UI dynamically
+			// function updateCartUI() {
+			// 	let cartCount = document.querySelector("#cart-count");
+			// 	let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+			// 	cartCount.textContent = cart.length;
+			// }
+
+			// 🌟 4️⃣ Load cart count on page load
+			// updateCartUI();
+		});
+
+	</script>
 
 </body>
 
